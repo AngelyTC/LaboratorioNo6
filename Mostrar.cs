@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace LaboratorioNo6
 {
-    class Vehiculo
+    class Mostrar
     {
+        public string nombre { get; set; }
+
         public string placa { get; set; }
-        public string marca { get; set; }
-        public int modelo { get; set; }
+
         public string color { get; set; }
-        public decimal precioKm { get; set; }
+
+        public DateTime devolucion { get; set; }
+
+        public decimal total { get; set; }
     }
 }

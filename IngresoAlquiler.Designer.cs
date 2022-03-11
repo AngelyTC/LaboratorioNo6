@@ -40,6 +40,11 @@ namespace LaboratorioNo6
             this.txtFechaD = new System.Windows.Forms.DateTimePicker();
             this.txtKm = new System.Windows.Forms.TextBox();
             this.btnIngresarDato = new System.Windows.Forms.Button();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.dgtAlquiler = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtAlquiler)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -124,18 +129,65 @@ namespace LaboratorioNo6
             // 
             // btnIngresarDato
             // 
-            this.btnIngresarDato.Location = new System.Drawing.Point(501, 217);
+            this.btnIngresarDato.Location = new System.Drawing.Point(40, 457);
             this.btnIngresarDato.Name = "btnIngresarDato";
             this.btnIngresarDato.Size = new System.Drawing.Size(169, 66);
             this.btnIngresarDato.TabIndex = 10;
             this.btnIngresarDato.Text = "Ingresar";
             this.btnIngresarDato.UseVisualStyleBackColor = true;
+            this.btnIngresarDato.Click += new System.EventHandler(this.btnIngresarDato_Click);
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(226, 457);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(169, 61);
+            this.btnCargar.TabIndex = 11;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(401, 455);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(169, 63);
+            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.Text = "Ver Datos";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // dgtAlquiler
+            // 
+            this.dgtAlquiler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgtAlquiler.Location = new System.Drawing.Point(523, 68);
+            this.dgtAlquiler.Name = "dgtAlquiler";
+            this.dgtAlquiler.RowHeadersWidth = 62;
+            this.dgtAlquiler.RowTemplate.Height = 28;
+            this.dgtAlquiler.Size = new System.Drawing.Size(664, 361);
+            this.dgtAlquiler.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(789, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 25);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Datos de Alquiler";
             // 
             // IngresoAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 492);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1306, 656);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dgtAlquiler);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.btnIngresarDato);
             this.Controls.Add(this.txtKm);
             this.Controls.Add(this.txtFechaD);
@@ -149,6 +201,7 @@ namespace LaboratorioNo6
             this.Controls.Add(this.label1);
             this.Name = "IngresoAlquiler";
             this.Text = "IngresoAlquiler";
+            ((System.ComponentModel.ISupportInitialize)(this.dgtAlquiler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +220,9 @@ namespace LaboratorioNo6
         private System.Windows.Forms.DateTimePicker txtFechaD;
         private System.Windows.Forms.TextBox txtKm;
         private System.Windows.Forms.Button btnIngresarDato;
+        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.DataGridView dgtAlquiler;
+        private System.Windows.Forms.Label label6;
     }
 }

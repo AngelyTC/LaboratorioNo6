@@ -13,5 +13,6 @@ namespace LaboratorioNo6
         public DateTime fechaAlquiler { get; set; }
         public DateTime fechaDevolucion { get; set; }
         public int kmRecorrido { get; set; }
+      
     }
 }
