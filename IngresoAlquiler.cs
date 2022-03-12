@@ -34,14 +34,26 @@ namespace LaboratorioNo6
             alqui1.kmRecorrido = Convert.ToInt16(txtKm.Text);
             //int 32 guarda hasta 32 bits, int16 guarda hasta 16 bits
             //agregar a lista
-            alqui.Add(alqui1);
+           int pos = alqui.FindIndex(x => x.NIT == alqui1.NIT);
+            if (pos == -1)
+            {
+                //agregar a lista
+                alqui.Add(alqui1);
+            }
+            else
+            {
+                MessageBox.Show("La placa ingresada ya existe");
+            }
+
+            
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
             Leer2(@"C:\ArchivoAlquiler.txt");
             Guardar1(@"C:\ArchivoAlquiler.txt");
-           
+            LeerCliente(@"C:\Archivo1Cliente.txt");
+            Leer1(@"C:\Archivo2Vehiculos.txt");
         }
 
         private void Leer2(string fileName)
@@ -64,6 +76,46 @@ namespace LaboratorioNo6
 
             reader.Close();
         }
+
+        private void LeerCliente(string fileName)
+        {
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+
+            while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
+            {
+                Cliente persona1 = new Cliente();
+                persona1.NIT= reader.ReadLine();
+                persona1.Nombre = reader.ReadLine();
+                persona1.direccion = reader.ReadLine();
+
+                //agregar a lista
+                persona.Add(persona1);
+            }
+
+            reader.Close();
+        }
+
+        private void Leer1(string fileName)
+        {
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+
+            while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
+            {
+                Vehiculo carro1 = new Vehiculo();
+                carro1.placa = reader.ReadLine();
+                carro1.marca = reader.ReadLine();
+                carro1.modelo = reader.ReadLine();
+                carro1.color = reader.ReadLine();
+                carro1.precioKm = Convert.ToInt16(reader.ReadLine());
+                //agregar a lista
+                carro.Add(carro1);
+            }
+
+            reader.Close();
+        }
+
         private void Guardar1(string fileName)
         {
             FileStream stream = new FileStream(fileName, FileMode.Append, FileAccess.Write);
@@ -103,17 +155,17 @@ namespace LaboratorioNo6
                         mostrar2.placa = carro[k].placa;
                         mostrar2.color = carro[k].color;
                         mostrar2.total = carro[k].precioKm * alqui[i].kmRecorrido;
+                        mostrar2.devolucion = alqui[i].fechaDevolucion;
                     }
                 }
                 mostrar.Add(mostrar2);
+                dgtdDatos.DataSource = null;
+                dgtdDatos.Refresh();
+
+                dgtdDatos.DataSource = mostrar;
+                dgtdDatos.Refresh();
             }
-          
-            dgtAlquiler.Refresh();
-
-            dgtAlquiler.DataSource = mostrar;
-            dgtAlquiler.Refresh();
-
-
+               
         }
     }
 }

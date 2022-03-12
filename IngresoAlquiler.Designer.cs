@@ -44,7 +44,9 @@ namespace LaboratorioNo6
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgtAlquiler = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.dgtdDatos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgtAlquiler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtdDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -178,12 +180,23 @@ namespace LaboratorioNo6
             this.label6.TabIndex = 14;
             this.label6.Text = "Datos de Alquiler";
             // 
+            // dgtdDatos
+            // 
+            this.dgtdDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgtdDatos.Location = new System.Drawing.Point(523, 537);
+            this.dgtdDatos.Name = "dgtdDatos";
+            this.dgtdDatos.RowHeadersWidth = 62;
+            this.dgtdDatos.RowTemplate.Height = 28;
+            this.dgtdDatos.Size = new System.Drawing.Size(664, 252);
+            this.dgtdDatos.TabIndex = 15;
+            // 
             // IngresoAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1306, 656);
+            this.ClientSize = new System.Drawing.Size(1306, 885);
+            this.Controls.Add(this.dgtdDatos);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgtAlquiler);
             this.Controls.Add(this.btnGuardar);
@@ -202,6 +215,7 @@ namespace LaboratorioNo6
             this.Name = "IngresoAlquiler";
             this.Text = "IngresoAlquiler";
             ((System.ComponentModel.ISupportInitialize)(this.dgtAlquiler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtdDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +238,6 @@ namespace LaboratorioNo6
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgtAlquiler;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dgtdDatos;
     }
 }

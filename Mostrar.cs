@@ -16,6 +16,6 @@ namespace LaboratorioNo6
 
         public DateTime devolucion { get; set; }
 
-        public decimal total { get; set; }
+        public int total { get; set; }
     }
 }

@@ -10,8 +10,8 @@ namespace LaboratorioNo6
     {
         public string placa { get; set; }
         public string marca { get; set; }
-        public int modelo { get; set; }
+        public string modelo { get; set; }
         public string color { get; set; }
-        public decimal precioKm { get; set; }
+        public int precioKm { get; set; }
     }
 }

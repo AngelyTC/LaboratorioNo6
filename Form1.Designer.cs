@@ -50,6 +50,7 @@ namespace LaboratorioNo6
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnverCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVehiculo)).BeginInit();
             this.SuspendLayout();
@@ -192,7 +193,7 @@ namespace LaboratorioNo6
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(159, 59);
             this.btnMostrar.TabIndex = 19;
-            this.btnMostrar.Text = "Ver datos";
+            this.btnMostrar.Text = "Ver datos Vehiculo";
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
@@ -244,12 +245,23 @@ namespace LaboratorioNo6
             this.label8.TabIndex = 24;
             this.label8.Text = "_____________________";
             // 
+            // btnverCliente
+            // 
+            this.btnverCliente.Location = new System.Drawing.Point(208, 605);
+            this.btnverCliente.Name = "btnverCliente";
+            this.btnverCliente.Size = new System.Drawing.Size(158, 59);
+            this.btnverCliente.TabIndex = 25;
+            this.btnverCliente.Text = "Ver Datos cliente";
+            this.btnverCliente.UseVisualStyleBackColor = true;
+            this.btnverCliente.Click += new System.EventHandler(this.btnverCliente_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1675, 813);
+            this.Controls.Add(this.btnverCliente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
@@ -303,6 +315,7 @@ namespace LaboratorioNo6
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnverCliente;
     }
 }
 
