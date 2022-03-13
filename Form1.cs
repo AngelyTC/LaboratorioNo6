@@ -15,15 +15,15 @@ namespace LaboratorioNo6
     {
         List<Vehiculo> carro = new List<Vehiculo>();
         List<Cliente> persona = new List<Cliente>();
-        //int precio;
+        int precio;
         public Form1()
         {
             InitializeComponent();
         }
 
         private void btnIngreso_Click(object sender, EventArgs e)
-        {
-         
+        {         
+            precio = Int16.Parse(txtPrecio.Text);
             Vehiculo carro1 = new Vehiculo();
             carro1.placa  = txtPlaca.Text;
             carro1.marca  = txtMarca.Text;
@@ -33,43 +33,27 @@ namespace LaboratorioNo6
 
             int pos = carro.FindIndex(x => x.placa == carro1.placa);
             if (pos == -1)
-            {      
+            {
                 //agregar a lista
                 carro.Add(carro1);
-                Guardar(@"C:\Archivo2Vehiculos.txt");
+                GuardarVehiculo(@"C:\Archivo2Vehiculos.txt");
             }
             else
             {
                 MessageBox.Show("La placa ingresada ya existe");
             }
-         
+            //agregar a lista
+           
+               
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
-        {    
+        {
             LeerCliente(@"C:\Archivo1Cliente.txt");
         }
 
-        private void Leer1(string fileName)
-        {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            StreamReader reader = new StreamReader(stream);
-
-            while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
-            {
-                Vehiculo carro1 = new Vehiculo();
-                carro1.placa = reader.ReadLine();
-                carro1.marca = reader.ReadLine();
-                carro1.modelo =  reader.ReadLine();              
-                carro1.color = reader.ReadLine();
-                carro1.precioKm = Convert.ToInt16(reader.ReadLine());
-                //agregar a lista
-                carro.Add(carro1);
-            }
-
-            reader.Close();
-        }
-        private void Guardar(string fileName)
+       
+        private void GuardarVehiculo(string fileName)
         {
             FileStream stream = new FileStream(fileName, FileMode.Append, FileAccess.Write);
 
@@ -81,12 +65,11 @@ namespace LaboratorioNo6
                 writer.WriteLine(carro1.placa);
                 writer.WriteLine(carro1.marca);
                 writer.WriteLine(carro1.modelo);
-                writer.WriteLine(carro1.color);
-                writer.WriteLine(carro1.precioKm);                   
+                writer.WriteLine(carro1.precioKm);
+                writer.WriteLine(carro1.color);                        
             }
             //este writer.Close() ira fuera del ciclo
             writer.Close();
-
         }
 
         private void LeerCliente(string fileName)
@@ -138,6 +121,11 @@ namespace LaboratorioNo6
 
             dtgClientes.DataSource = persona;
             dtgClientes.Refresh();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

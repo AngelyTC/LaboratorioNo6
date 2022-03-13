@@ -39,6 +39,7 @@ namespace LaboratorioNo6
             {
                 //agregar a lista
                 alqui.Add(alqui1);
+                Guardar1(@"C:\ArchivoAlquiler.txt");
             }
             else
             {
@@ -50,8 +51,6 @@ namespace LaboratorioNo6
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            Leer2(@"C:\ArchivoAlquiler.txt");
-            Guardar1(@"C:\ArchivoAlquiler.txt");
             LeerCliente(@"C:\Archivo1Cliente.txt");
             Leer1(@"C:\Archivo2Vehiculos.txt");
         }
@@ -107,8 +106,9 @@ namespace LaboratorioNo6
                 carro1.placa = reader.ReadLine();
                 carro1.marca = reader.ReadLine();
                 carro1.modelo = reader.ReadLine();
-                carro1.color = reader.ReadLine();
                 carro1.precioKm = Convert.ToInt16(reader.ReadLine());
+                carro1.color = reader.ReadLine();
+              
                 //agregar a lista
                 carro.Add(carro1);
             }
@@ -165,7 +165,19 @@ namespace LaboratorioNo6
                 dgtdDatos.DataSource = mostrar;
                 dgtdDatos.Refresh();
             }
-               
+
+            dgtAlquiler.DataSource = null;
+            dgtAlquiler.Refresh();
+
+            dgtAlquiler.DataSource = alqui;
+            dgtAlquiler.Refresh();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            alqui = alqui.OrderByDescending(u => u.kmRecorrido).ToList();
+           
         }
     }
 }

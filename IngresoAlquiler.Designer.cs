@@ -45,6 +45,9 @@ namespace LaboratorioNo6
             this.dgtAlquiler = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.dgtdDatos = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtAlquiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgtdDatos)).BeginInit();
             this.SuspendLayout();
@@ -190,12 +193,43 @@ namespace LaboratorioNo6
             this.dgtdDatos.Size = new System.Drawing.Size(664, 252);
             this.dgtdDatos.TabIndex = 15;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(36, 567);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(210, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Alquiler que recorrio mas Km";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 613);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(297, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "________________________________";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(98, 664);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 52);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // IngresoAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1306, 885);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dgtdDatos);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgtAlquiler);
@@ -239,5 +273,8 @@ namespace LaboratorioNo6
         private System.Windows.Forms.DataGridView dgtAlquiler;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgtdDatos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }
