@@ -48,6 +48,7 @@ namespace LaboratorioNo6
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgtAlquiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgtdDatos)).BeginInit();
             this.SuspendLayout();
@@ -136,7 +137,7 @@ namespace LaboratorioNo6
             // 
             this.btnIngresarDato.Location = new System.Drawing.Point(40, 457);
             this.btnIngresarDato.Name = "btnIngresarDato";
-            this.btnIngresarDato.Size = new System.Drawing.Size(169, 66);
+            this.btnIngresarDato.Size = new System.Drawing.Size(111, 66);
             this.btnIngresarDato.TabIndex = 10;
             this.btnIngresarDato.Text = "Ingresar";
             this.btnIngresarDato.UseVisualStyleBackColor = true;
@@ -144,9 +145,9 @@ namespace LaboratorioNo6
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(226, 457);
+            this.btnCargar.Location = new System.Drawing.Point(157, 457);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(169, 61);
+            this.btnCargar.Size = new System.Drawing.Size(108, 66);
             this.btnCargar.TabIndex = 11;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
@@ -154,9 +155,9 @@ namespace LaboratorioNo6
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(401, 455);
+            this.btnGuardar.Location = new System.Drawing.Point(271, 457);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(169, 63);
+            this.btnGuardar.Size = new System.Drawing.Size(124, 66);
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Ver Datos";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -186,7 +187,7 @@ namespace LaboratorioNo6
             // dgtdDatos
             // 
             this.dgtdDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtdDatos.Location = new System.Drawing.Point(523, 537);
+            this.dgtdDatos.Location = new System.Drawing.Point(523, 480);
             this.dgtdDatos.Name = "dgtdDatos";
             this.dgtdDatos.RowHeadersWidth = 62;
             this.dgtdDatos.RowTemplate.Height = 28;
@@ -221,12 +222,24 @@ namespace LaboratorioNo6
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(775, 445);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(216, 25);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Datos cliente y vehiculo";
+            // 
             // IngresoAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1306, 885);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -276,5 +289,6 @@ namespace LaboratorioNo6
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
     }
 }

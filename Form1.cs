@@ -15,7 +15,7 @@ namespace LaboratorioNo6
     {
         List<Vehiculo> carro = new List<Vehiculo>();
         List<Cliente> persona = new List<Cliente>();
-        int precio;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,20 +23,21 @@ namespace LaboratorioNo6
 
         private void btnIngreso_Click(object sender, EventArgs e)
         {         
-            precio = Int16.Parse(txtPrecio.Text);
-            Vehiculo carro1 = new Vehiculo();
-            carro1.placa  = txtPlaca.Text;
-            carro1.marca  = txtMarca.Text;
-            carro1.modelo  = txtModelo.Text;
-            carro1.precioKm  = Convert.ToInt16(txtPrecio.Text);
-            carro1.color  = txtColor.Text;
+           
 
-            int pos = carro.FindIndex(x => x.placa == carro1.placa);
+            int pos = carro.FindIndex(x => x.placa == txtPlaca.Text);
             if (pos == -1)
             {
+                Vehiculo carro1 = new Vehiculo();
+                carro1.placa = txtPlaca.Text;
+                carro1.marca = txtMarca.Text;
+                carro1.modelo = txtModelo.Text;
+                carro1.precioKm = Convert.ToInt16(txtPrecio.Text);
+                carro1.color = txtColor.Text;
+
                 //agregar a lista
                 carro.Add(carro1);
-                GuardarVehiculo(@"C:\Archivo2Vehiculos.txt");
+                GuardarVehiculo(@"C:\Vehiculos.txt");
             }
             else
             {
@@ -56,7 +57,6 @@ namespace LaboratorioNo6
         private void GuardarVehiculo(string fileName)
         {
             FileStream stream = new FileStream(fileName, FileMode.Append, FileAccess.Write);
-
             StreamWriter writer = new StreamWriter(stream);
 
             //las variables var utilizan cualquier tipo de variable ya sea string u otros
@@ -71,6 +71,27 @@ namespace LaboratorioNo6
             //este writer.Close() ira fuera del ciclo
             writer.Close();
         }
+
+       /* private void LeerVehiculo(string fileName)
+        {
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+
+            while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
+            {
+                Vehiculo carro1 = new Vehiculo();
+                carro1.placa = reader.ReadLine();
+                carro1.marca = reader.ReadLine();
+                carro1.modelo = reader.ReadLine();
+                carro1.precioKm = Convert.ToInt16(reader.ReadLine());
+                carro1.color = reader.ReadLine();
+
+                //agregar a lista
+               carro.Add(carro1);
+            }
+
+            reader.Close();
+        }*/
 
         private void LeerCliente(string fileName)
         {

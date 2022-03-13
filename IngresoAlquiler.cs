@@ -27,8 +27,8 @@ namespace LaboratorioNo6
         {
             reco = Int16.Parse(txtKm.Text);
             Alquiler alqui1 = new Alquiler();
+            alqui1.NIT = txtNit1.Text;
             alqui1.placa = txtPlaca1.Text;
-            alqui1.NIT  = txtNit1.Text;
             alqui1.fechaAlquiler = txtFechaA.Value;
             alqui1.fechaDevolucion =txtFechaD.Value;
             alqui1.kmRecorrido = Convert.ToInt16(txtKm.Text);
@@ -52,7 +52,7 @@ namespace LaboratorioNo6
         private void btnCargar_Click(object sender, EventArgs e)
         {
             LeerCliente(@"C:\Archivo1Cliente.txt");
-            Leer1(@"C:\Archivo2Vehiculos.txt");
+            Leer1(@"C:\Vehiculos.txt");
         }
 
         private void Leer2(string fileName)
@@ -176,8 +176,8 @@ namespace LaboratorioNo6
 
         private void button1_Click(object sender, EventArgs e)
         {
-            alqui = alqui.OrderByDescending(u => u.kmRecorrido).ToList();
-           
+            int mayalqui = alqui.Max(u => u.kmRecorrido);
+            label8.Text = "El alquiler con mayor recorrido es de  " + mayalqui.ToString();
         }
     }
 }
