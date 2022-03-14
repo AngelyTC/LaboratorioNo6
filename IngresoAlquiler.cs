@@ -17,7 +17,6 @@ namespace LaboratorioNo6
         List<Cliente> persona = new List<Cliente>();
         List<Vehiculo> carro = new List<Vehiculo>();
         List<Mostrar> mostrar = new List<Mostrar>();
-        int reco;
         public IngresoAlquiler()
         {
             InitializeComponent();
@@ -25,7 +24,6 @@ namespace LaboratorioNo6
 
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
-            reco = Int16.Parse(txtKm.Text);
             Alquiler alqui1 = new Alquiler();
             alqui1.NIT = txtNit1.Text;
             alqui1.placa = txtPlaca1.Text;
@@ -39,7 +37,7 @@ namespace LaboratorioNo6
             {
                 //agregar a lista
                 alqui.Add(alqui1);
-                Guardar1(@"C:\ArchivoAlquiler.txt");
+                Guardar1();
             }
             else
             {
@@ -51,34 +49,15 @@ namespace LaboratorioNo6
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            LeerCliente(@"C:\Archivo1Cliente.txt");
-            Leer1(@"C:\Vehiculos.txt");
+            LeerCliente();
+            Leer1();
         }
 
-        private void Leer2(string fileName)
+       
+
+        private void LeerCliente()
         {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            StreamReader reader = new StreamReader(stream);
-
-            while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
-            {
-                Alquiler alqui1 = new Alquiler();
-                alqui1.NIT  = reader.ReadLine();
-                alqui1.placa  = reader.ReadLine();
-                alqui1.fechaAlquiler = Convert.ToDateTime (reader.ReadLine());
-                alqui1.fechaDevolucion = Convert.ToDateTime(reader.ReadLine());
-                alqui1.kmRecorrido = Convert.ToInt32(reader.ReadLine());
-
-                //agregar a lista
-                alqui.Add(alqui1);
-            }
-
-            reader.Close();
-        }
-
-        private void LeerCliente(string fileName)
-        {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream("Archivo1Cliente.txt", FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
 
             while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
@@ -95,9 +74,9 @@ namespace LaboratorioNo6
             reader.Close();
         }
 
-        private void Leer1(string fileName)
+        private void Leer1()
         {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream("Carros.txt", FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
 
             while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
@@ -116,9 +95,9 @@ namespace LaboratorioNo6
             reader.Close();
         }
 
-        private void Guardar1(string fileName)
+        private void Guardar1()
         {
-            FileStream stream = new FileStream(fileName, FileMode.Append, FileAccess.Write);
+            FileStream stream = new FileStream("ArchivoAlquiler.txt", FileMode.Append, FileAccess.Write);
 
             StreamWriter writer = new StreamWriter(stream);
 

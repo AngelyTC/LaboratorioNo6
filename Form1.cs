@@ -21,81 +21,56 @@ namespace LaboratorioNo6
             InitializeComponent();
         }
 
-        private void btnIngreso_Click(object sender, EventArgs e)
-        {         
-           
+        private void GuardarVehiculo()
+        {
+            FileStream stream = new FileStream("Carros.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
 
-            int pos = carro.FindIndex(x => x.placa == txtPlaca.Text);
-            if (pos == -1)
+            foreach (var carro1 in carro)
             {
-                Vehiculo carro1 = new Vehiculo();
-                carro1.placa = txtPlaca.Text;
-                carro1.marca = txtMarca.Text;
-                carro1.modelo = txtModelo.Text;
-                carro1.precioKm = Convert.ToInt16(txtPrecio.Text);
-                carro1.color = txtColor.Text;
+                writer.WriteLine(carro1.placa );
+                writer.WriteLine(carro1.modelo);
+                writer.WriteLine(carro1.color);
+                writer.WriteLine(carro1.precioKm);
+                writer.WriteLine(carro1.marca);
+            }
+            writer.Close();
+            
+        }
 
-                //agregar a lista
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+            Vehiculo carro1 = new Vehiculo();
+            carro1.placa = txtPlaca.Text;
+            carro1.modelo = txtModelo.Text;
+            carro1.color = txtColor.Text;
+            carro1.precioKm = Convert.ToInt16(txtPrecio.Text);
+            carro1.marca = txtMarca.Text;
+
+            int posicion = carro.FindIndex(x => x.placa == carro1.placa);
+            if (posicion == -1)
+            {
                 carro.Add(carro1);
-                GuardarVehiculo(@"C:\Vehiculos.txt");
+                GuardarVehiculo();
             }
             else
             {
-                MessageBox.Show("La placa ingresada ya existe");
+                MessageBox.Show("Este vehiculo ya existe"); 
             }
-            //agregar a lista
-           
+
                
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            LeerCliente(@"C:\Archivo1Cliente.txt");
+            LeerCliente();
         }
+    
 
-       
-        private void GuardarVehiculo(string fileName)
+        private void LeerCliente()
         {
-            FileStream stream = new FileStream(fileName, FileMode.Append, FileAccess.Write);
-            StreamWriter writer = new StreamWriter(stream);
-
-            //las variables var utilizan cualquier tipo de variable ya sea string u otros
-            foreach (var carro1 in carro)
-            {
-                writer.WriteLine(carro1.placa);
-                writer.WriteLine(carro1.marca);
-                writer.WriteLine(carro1.modelo);
-                writer.WriteLine(carro1.precioKm);
-                writer.WriteLine(carro1.color);                        
-            }
-            //este writer.Close() ira fuera del ciclo
-            writer.Close();
-        }
-
-       /* private void LeerVehiculo(string fileName)
-        {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            StreamReader reader = new StreamReader(stream);
-
-            while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
-            {
-                Vehiculo carro1 = new Vehiculo();
-                carro1.placa = reader.ReadLine();
-                carro1.marca = reader.ReadLine();
-                carro1.modelo = reader.ReadLine();
-                carro1.precioKm = Convert.ToInt16(reader.ReadLine());
-                carro1.color = reader.ReadLine();
-
-                //agregar a lista
-               carro.Add(carro1);
-            }
-
-            reader.Close();
-        }*/
-
-        private void LeerCliente(string fileName)
-        {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream("Archivo1Cliente.txt", FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
 
             while (reader.Peek() > -1) //el -1 significa la ultima linea que no existe demostrando el final del archivo
