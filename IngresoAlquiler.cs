@@ -144,12 +144,12 @@ namespace LaboratorioNo6
                 dgtdDatos.DataSource = mostrar;
                 dgtdDatos.Refresh();
             }
-
-            dgtAlquiler.DataSource = null;
+ dgtAlquiler.DataSource = null;
             dgtAlquiler.Refresh();
 
             dgtAlquiler.DataSource = alqui;
             dgtAlquiler.Refresh();
+           
 
         }
 
